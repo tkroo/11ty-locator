@@ -1,10 +1,30 @@
 ---
 title: Locations
-layout: layout.njk
 ---
+<style>
+    .storelocator-wrap {
+        font-size: 1.3rem;
+    }
+    .storelocator-wrap h3 {
+        margin: 0 0 0.5rem 0;
+        border-bottom: 1px solid #ccc;
+        text-transform: uppercase;
+        padding-bottom: 0.5rem;
+    }
+    .results {
+        display: grid;
+        grid-template-columns: repeat( auto-fit, minmax(30%, 1fr) );
+        gap: 1rem;
+        margin-bottom: 4rem;
+    }
+    .item p {
+        margin: 0;
+    }
+</style>
 <div class="storelocator-wrap">
+<h2>Retailer Locations</h2>
 {% for state, locationsInState in store_locations %}
-<h2>{{ state }}</h2>
+<h3>{{ state }}</h3>
 <div class="results">
         {% for loc in locationsInState %}
     <div class="item">
@@ -17,21 +37,4 @@ layout: layout.njk
 {% endfor %}
 </div>
 
-<style>
-    .storelocator-wrap {
-        font-size: 1.3rem;
-    }
-    .storelocator-wrap h2 {
-        margin: 0 0 0.5rem 0;
-        border-bottom: 1px solid #ccc;
-    }
-    .results {
-        display: grid;
-        grid-template-columns: repeat( auto-fit, minmax(19%, 1fr) );
-        gap: 1rem;
-        margin-bottom: 4rem;
-    }
-    .item p {
-        margin: 0;
-    }
-</style>
+
