@@ -1,0 +1,29 @@
+---
+title: Locations
+layout: layout.njk
+---
+<div class="wrap">
+{% for state, locationsInState in store_locations %}
+<h2>{{ state }}</h2>
+<div class="results">
+        {% for loc in locationsInState %}
+    <div class="item">
+        <strong>{{ loc.Name }}</strong>
+        <p>{{ loc.Address }}</p>
+        <p>{{ loc.City }}, {{ state }} {{ loc['Postal/Zip Code'] }}</p>
+    </div>
+        {% endfor %}
+</div>
+{% endfor %}
+</div>
+
+<style>
+    .results {
+        display: grid;
+        grid-template-columns: repeat( auto-fill, minmax(19%, 1fr) );
+        gap: 1rem;
+    }
+    .item p {
+        margin: 0;
+    }
+</style>
