@@ -2,7 +2,7 @@
 title: Locations
 layout: layout.njk
 ---
-<div class="wrap">
+<div class="storelocator-wrap">
 {% for state, locationsInState in store_locations %}
 <h2>{{ state }}</h2>
 <div class="results">
@@ -18,10 +18,18 @@ layout: layout.njk
 </div>
 
 <style>
+    .storelocator-wrap {
+        font-size: 1.3rem;
+    }
+    .storelocator-wrap h2 {
+        margin: 0 0 0.5rem 0;
+        border-bottom: 1px solid #ccc;
+    }
     .results {
         display: grid;
-        grid-template-columns: repeat( auto-fill, minmax(19%, 1fr) );
+        grid-template-columns: repeat( auto-fit, minmax(19%, 1fr) );
         gap: 1rem;
+        margin-bottom: 4rem;
     }
     .item p {
         margin: 0;
