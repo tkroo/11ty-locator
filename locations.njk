@@ -21,6 +21,13 @@ title: Locations
         gap: 1rem;
         margin-bottom: 4rem;
     }
+
+    @media screen and (max-width: 749px) {
+        .results {
+            grid-template-columns: 1fr;
+        }
+    }
+
     .item p {
         margin: 0;
     }
@@ -34,7 +41,7 @@ title: Locations
     .shortcuts {
         display: flex;
         gap: 0.25rem;
-        font-size: 0.8rem;
+        font-size: 1rem;
         flex-wrap: wrap;
     }
     .shortcuts a {
