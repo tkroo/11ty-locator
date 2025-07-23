@@ -10,6 +10,10 @@ title: Locations
         border-bottom: 1px solid #ccc;
         text-transform: uppercase;
         padding-bottom: 0.5rem;
+        padding-top: 1rem;
+    }
+    .storelocator-wrap h3:first-of-type {
+        margin-top: 2rem;
     }
     .results {
         display: grid;
@@ -20,17 +24,44 @@ title: Locations
     .item p {
         margin: 0;
     }
+    .locator-header {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: baseline;
+        flex-wrap: wrap;
+    }
+    .shortcuts {
+        display: flex;
+        gap: 0.25rem;
+        font-size: 0.8rem;
+        flex-wrap: wrap;
+    }
+    .shortcuts a {
+        text-decoration: none;
+    }
+    .shortcuts a:hover {
+        text-decoration: underline;
+    }
+
 </style>
 <div class="storelocator-wrap">
-<h2>Retailer Locations</h2>
+<div class="locator-header">
+    <h2>Retailer Locations</h2>
+    <div class="shortcuts">
+    {%- for k, v in state_lookup -%}
+        <a href="#{{k}}">{{v}}</a>
+    {%- endfor -%}
+    </div>
+</div>
 {% for state, locationsInState in store_locations %}
-<h3>{{ state }}</h3>
+<h3 id="{{state}}">{{ state }}</h3>
 <div class="results">
         {% for loc in locationsInState %}
     <div class="item">
         <strong>{{ loc.Name }}</strong>
         <p>{{ loc.Address }}</p>
-        <p>{{ loc.City }}, {{ state }} {{ loc['Postal/Zip Code'] }}</p>
+        <p>{{ loc.City }}, {{ loc['Province/State'] }} {{ loc['Postal/Zip Code'] }}</p>
     </div>
         {% endfor %}
 </div>
